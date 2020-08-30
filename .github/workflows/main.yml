@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  Проверка кода:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,7 +17,7 @@ jobs:
       - name: Проверка
         run: nix-shell ./.github --run ./.github/lint.sh
 
-  Компиляция:
+  build:
     runs-on: ubuntu-latest
 
     steps:
