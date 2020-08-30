@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 ERRORS=0
 function countError {
     echo "Программа завершилась с ошибкой:"
