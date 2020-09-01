@@ -8,18 +8,16 @@ on:
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
       - uses: actions/checkout@v2
-      - uses: cachix/install-nix-action@v10
 
-      # nix-shell используется для clang-format версии 10,
-      # в которой появился параметр --dry-run,
-      # используемый для тестирования.
-      # В ubuntu-latest версия 9.
+      - name: Install checkers
+        run: sudo apt-get install -y clang-tidy clang-format cppcheck
+
       - name: Проверка
-        run: nix-shell --no-build-output --quiet ./.github --run ./.github/lint.sh
+        run: .github/lint.sh
 
   build:
     runs-on: ubuntu-latest
