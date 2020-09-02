@@ -1,4 +1,4 @@
-with import <nixpkgs> {};
+with import <unstable> {};
 
 mkShell {
     buildInputs = [ gcc gdb 
