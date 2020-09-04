@@ -39,6 +39,13 @@ sudo apt-get install -y build-essential
 sudo apt-get install -y clang-tidy clang-format cppcheck
 ```
 
+Некоторые замечания по результатам проверки `clang-tidy` можно исправить автоматически.
+Для этого вызовите команду:
+
+```
+.github/clang-tidy.sh --fix-errors main.c
+```
+
 Файлы в каталоге `.github` студентам редактировать запрещено.
 
 ## Требования к форматированию кода
@@ -60,7 +67,7 @@ sudo apt-get install -y clang-tidy clang-format cppcheck
 Поэтому на всякий случай, сделайте коммит перед запуском `clang-format`.
 
 ```
-clang-format --style="{BasedOnStyle: llvm, IndentWidth: 4, AlignTrailingComments: false, BreakBeforeBraces: Linux, AllowShortFunctionsOnASingleLine: Inline}" -i ./main.c
+.github/clang-format.sh -i ./main.c
 ```
 
 Пример правильно отформатированного кода:
