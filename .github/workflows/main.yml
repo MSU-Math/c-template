@@ -8,7 +8,7 @@ on:
 
 jobs:
   lint:
-    runs-on: ubuntu-20.04
+    runs-on: self-hosted
 
     steps:
       - uses: actions/checkout@v2
@@ -20,10 +20,13 @@ jobs:
         run: .github/lint.sh
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: Install GCC
+        run: sudo apt-get install -y build-essential
 
       - name: Компиляция
         run: ./.github/build.sh
