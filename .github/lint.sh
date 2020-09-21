@@ -18,6 +18,6 @@ echo "# clang-format (форматирование кода)"
 find . -maxdepth 1 -name "*.c*" | xargs -r $(dirname $0)/clang-format.sh --dry-run -Werror && echo "OK" || false
 
 echo "# Предупреждения GCC"
-find . -maxdepth 1 -name "*.c*" | xargs -r g++ -Wall -Wextra -lm -g -O -fsanitize=address -fsanitize=leak -fsanitize=undefined -fsanitize=null -fsanitize=bounds-strict -fstack-protector-all && echo "OK" || false
+$(dirname $0)/build.sh && echo "OK" || false
 
 exit $ERRORS
